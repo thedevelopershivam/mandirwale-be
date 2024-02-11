@@ -30,7 +30,7 @@ const processImages = async (req, res, next) => {
 
 
     if (!req.files || req.files.length === 0) {
-        return next(new Error("file not available"));
+        return next();
     }
 
     console.log("req.files");

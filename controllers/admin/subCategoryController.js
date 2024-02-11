@@ -4,6 +4,7 @@ const subCategoryModel = require("../../models/admin/subCategoryModel");
 
 
 exports.createSubCategory = catchAsync(async (req, res, next) => {
+
     const subCat = await subCategoryModel.create({
         subCategory: req.body.subCategory,
         categoryId: req.body.categoryId,

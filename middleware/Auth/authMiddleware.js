@@ -2,17 +2,15 @@ const jwt = require('jsonwebtoken');
 const AppError = require("../../util/function/appError");
 const { catchAsync } = require("../../util/function/catchAsync")
 const { promisify } = require("util");
-const { CLIENT_RENEG_LIMIT } = require('tls');
+// const { CLIENT_RENEG_LIMIT } = require('tls');
 const userModel = require('../../models/userModel');
 
 exports.adminAuthMiddleware = catchAsync(async (req, res, next) => {
     let token = "";
-
     // getting token and check is there valid token exist or not
     if (req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
         token = req.headers.authorization.split(" ")[1]
     }
-    console.log(res.user)
 
     if (!token) {
         next(new AppError('You are not authorise person for view this page!', '404'));

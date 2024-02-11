@@ -2,6 +2,7 @@
 const categoryController = require("../../controllers/admin/categoryController");
 const { fileUpload } = require("../../controllers/admin/fileUploadController");
 const subCategoryController = require("../../controllers/admin/subCategoryController");
+
 const countryController = require("../../controllers/admin/countryController");
 const stateController = require("../../controllers/admin/stateController");
 
@@ -16,7 +17,7 @@ const createGodController = require("../../controllers/admin/addGodController");
 const router = express.Router();
 
 
-router.route("/add-category").post(categoryController.addCategory);
+router.route("/create-category").post(upload.array('files', 2), processImages, categoryController.createCategory);
 router.route("/create-sub-category").post(subCategoryController.createSubCategory);
 
 router.route("/create-country").post(countryController.createCountry);
