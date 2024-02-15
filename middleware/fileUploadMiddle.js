@@ -18,8 +18,7 @@ const upload = multer({
     storage: multer.memoryStorage(),
     fileFilter: imageFilter,
     limits: {
-        files: 5, // Set the maximum number of files allowed (adjust as needed)
-        // fileSize: 5 * 1024 * 1024, // Set the maximum file size (adjust as needed)
+        files: 5,
     },
 });
 
@@ -28,13 +27,12 @@ const processImageFolder = path.join(__dirname, "../assets/images/temples/proces
 
 const processImages = async (req, res, next) => {
 
+    console.clear()
+    console.log(req)
 
     if (!req.files || req.files.length === 0) {
         return next();
     }
-
-    console.log("req.files");
-    console.log(req.files);
 
     req.processedImages = [];
 

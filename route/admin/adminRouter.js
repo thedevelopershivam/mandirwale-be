@@ -17,7 +17,8 @@ const createGodController = require("../../controllers/admin/addGodController");
 const router = express.Router();
 
 
-router.route("/create-category").post(upload.array('files', 2), processImages, categoryController.createCategory);
+router.route("/create-category").post(upload.array('files', 1), processImages, categoryController.createCategory);
+
 router.route("/create-sub-category").post(subCategoryController.createSubCategory);
 
 router.route("/create-country").post(countryController.createCountry);

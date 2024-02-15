@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const rateLimiter = require("express-rate-limit");
 const app = new express();
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 
 // pages router
 const userRoute = require("./route/Auth/user.route");
@@ -17,8 +17,10 @@ const { userRoleMiddleware } = require("./middleware/admin/rolesCheckMiddleware"
 // middlewares
 app.use(cors())
 app.use(express.json());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+
 
 // intergration of router middleware
 app.use("/api/v1/admin", userRoute);
