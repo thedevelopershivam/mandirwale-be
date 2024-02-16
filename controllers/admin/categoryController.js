@@ -5,8 +5,10 @@ const multer = require("multer");
 
 
 exports.createCategory = catchAsync(async (req, res, next) => {
-    console.clear();
-    console.log("here yo uare !");
+
+    console.log("req.body 💖💖💖💖💖💖");
+    console.log(req.body);
+    console.log("req.body 💖💖💖💖💖💖");
 
     const createdCategory = await categoryModel.create({
         category: req.body.category,

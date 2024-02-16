@@ -27,8 +27,8 @@ const processImageFolder = path.join(__dirname, "../assets/images/temples/proces
 
 const processImages = async (req, res, next) => {
 
-    console.clear()
-    console.log(req)
+    // console.clear()
+    console.log(req.body)
 
     if (!req.files || req.files.length === 0) {
         return next();

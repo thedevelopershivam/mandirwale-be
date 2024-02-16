@@ -13,7 +13,7 @@ exports.adminAuthMiddleware = catchAsync(async (req, res, next) => {
     }
 
     if (!token) {
-        next(new AppError('You are not authorise person for view this page!', '404'));
+        next(new AppError('You are not authorise person for view this page!', 404));
     }
 
     // verification token
